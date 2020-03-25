@@ -5,8 +5,8 @@ import './index.scss'
 
 const HERO_PROPS = {
 	src: 'sky.jpg',
-	titles: ['Descubre el futuro ', 'que cuentan las estrellas'],
-	subtitle: 'Comienza a vivir tu vida con un significado.',
+	titles: ['Descubre el futuro ', 'que te cuentan las estrellas'],
+	subtitle: 'Comienza a vivir tu vida con un significado más profundo.',
 	cta: 'Empieza ahora'
 }
 
@@ -14,7 +14,7 @@ const HERO_PROPS = {
 const cards = [
 	{ title: 'Exploradores', subtitle: 'Buscando una nueva perspectiva de la vida.', src: 'explorer.jpg'},
 	{ title: 'Intuitivas', subtitle: 'Que saben que las cosas no son lo que parecen.', src: 'sensitive.jpg'},
-	{ title: 'Curiosos', subtitle: 'Y quieren saber de todo con mente abierta.', src: 'curious.jpg'}
+	{ title: 'Curiosos', subtitle: 'Y quieren saberlo todo con una mente abierta.', src: 'curious.jpg'}
 ]
 
 
@@ -26,7 +26,7 @@ const INFOSECTION_PROPS = {
 
 
 const CTA_PROPS = {
-	titles: ['Descubre tu Carta Astral', 'con tu fecha de nacimiento.'],
+	titles: ['Interpreta tu Carta Astral', 'con tu fecha de nacimiento.'],
 	labels: ['Nombre'],
 	cta: 'Enviar'
 }
