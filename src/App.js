@@ -1,12 +1,12 @@
 import { Hero, InfoSection, CTASection } from './Components/Landing'
-import React, { Fragment } from 'react'
+import React from 'react'
 import './index.scss'
 
 
 const HERO_PROPS = {
 	src: 'sky.jpg',
-	titles: ['Descubre el futuro ', 'según las estrellas'],
-	subtitle: 'Comienza a vivir una vida con significado.',
+	titles: ['Descubre el futuro ', 'que cuentan las estrellas'],
+	subtitle: 'Comienza a vivir tu vida con un significado.',
 	cta: 'Empieza ahora'
 }
 
@@ -26,16 +26,17 @@ const INFOSECTION_PROPS = {
 
 
 const CTA_PROPS = {
-	titles: ['Usa tu fecha de nacimiento', 'para calcular tu Carta Astral'],
-	labels: ['Nombre', 'Fecha', 'Año'],
+	titles: ['Descubre tu Carta Astral', 'con tu fecha de nacimiento.'],
+	labels: ['Nombre'],
 	cta: 'Enviar'
 }
+
 
 
 const App = () => <div className="App">
 	<Hero {...HERO_PROPS}/>
 	<InfoSection {...INFOSECTION_PROPS}/>
-	<CTASection cta_props={CTA_PROPS} iteraction={<Fragment/>}/>
+	<CTASection cta_props={CTA_PROPS} iteraction={<div/>}/>
 </div>
 
 

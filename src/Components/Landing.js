@@ -1,7 +1,7 @@
 import { Link, Element } from 'react-scroll'
 import Particles from 'react-particles-js'
-import React, { Fragment } from "react"
-
+import React, { Fragment, useState } from "react"
+import { DateInput, days, leap_years } from './DateInput'
 
 const FIRST_COLOR = '#4D235F'
 const SECOND_COLOR = '#EE9CA0'
@@ -66,26 +66,45 @@ export const InfoSection = ({ title, cards, cta }) => <Element name="sectionTwo"
 </Element>
 
 
-const CTAForm = ({ titles, labels, cta }) => <div className="column" style={{padding: '2rem'}}>
-    <h2 {...subtitle_props(3)} style={{ marginTop:'15vh', color:'white'}}> { titles[0] } <br/> { titles[1] } </h2>
-    <fieldset className="FormGroup">
-        { labels.map((label, key) => <div className="FormRow" key={key}>
-            <label class="FormRowLabel"> { label } </label>
-            <input class="FormRowInput"/>
-        </div>)}
-    </fieldset>
-    <button class="SubmitButton " type="submit"> { cta } </button>
-</div>
+const CTAForm = ({ titles, labels, cta }) => {
+    const [fields, setFields] = useState(labels.reduce((d, i)=>({...d, [i]:''}),{}))
+    const [date, setDate] = useState({ day: '', month: '', year: '' })
+    const validate_date = ({ day, month, year }) => {
+        const is_month_violation = days[month] < day
+        const is_leap_violation = day === '29' && month === 'Febrero' && year && !leap_years.includes(year)
+        setDate({
+            day: !is_month_violation && !is_leap_violation ? day: '',
+            month: month,
+            year: year
+        })
+    }
+
+    return <div className="column" style={{padding: '2rem'}}>
+        <h2 {...subtitle_props(3)} style={{ marginTop:'30vh', color:'white'}}> { titles[0] } <br/> { titles[1] } </h2>
+            <fieldset className="FormGroup">
+                { labels.map((label, key) => <div className="FormRow" key={key}>
+                    <label className="FormRowLabel"> { label } </label>
+                    <input className="FormRowInput" onChange={({target}) => setFields({...fields, [label]: target.value})}/>
+                </div>)}
+            <div className="FormRow">
+                <label className="FormRowLabel"> Fecha </label>
+                <DateInput date={date} setDate={validate_date}/>
+            </div>
+        </fieldset>
+        <button className="SubmitButton " type="submit" onClick={() => console.log({...fields, date})}> { cta } </button>
+    </div>
+}
+
 
 const ITERACTION_COL_STYLE = {padding:'5% 2%', textAlign:'left', paddingBottom:0}
-const CTA_HERO_STYLE = {backgroundImage:`linear-gradient(${SECOND_COLOR}, ${THIRD_COLOR})`, height:'100vh', flexDirection: 'inherit'}
+const CTA_HERO_STYLE = {backgroundImage:`linear-gradient(${SECOND_COLOR}, ${THIRD_COLOR})`, height:'105vh', flexDirection: 'inherit'}
 const Iteraction = ({ iteraction }) => <div className="column is-two-thirds" style={ITERACTION_COL_STYLE} > { iteraction }</div>
 export const CTASection = ({cta_props, iteraction}) => <Element name="sectionThree">
     <section {...HERO_PROPS} style={CTA_HERO_STYLE}>
-        <div className="container has-text-centered" style={{padding:'0% 2%', maxWidth:2500}}>
+        <div className="container has-text-centered" style={{padding:'0% 2%', maxWidth:1650}}>
             <div className="columns is-vcentered" style={{marginTop:'3%'}}>
                 <CTAForm {...cta_props}/>
-                <Iteraction iteraction/>
+                <Iteraction iteraction={iteraction}/>
             </div>
         </div>
     </section>

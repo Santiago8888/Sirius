@@ -47,7 +47,7 @@ $title-color: darkgreen;
 }
 
 .FormRowLabel {
-    width: 50%;
+    width: 30%;
     min-width: 70px;
     padding: 11px;
     color: #c4f0ff;
@@ -105,5 +105,19 @@ $title-color: darkgreen;
     font-size: 120%
 }
 
+.select.is-info:not(:hover)::after {
+    border-color: #c4f0ff!important;
+}
+
+.select.is-info select {
+    border-color: #7795f8!important;
+    background-color: #7795f8!important;
+    color: #c4f0ff!important;
+    border-radius: 0px!important
+}
+
+.field:not(:last-child) {
+    margin-bottom: 0px!important;
+}
 
 @import "~bulma/bulma.sass"
