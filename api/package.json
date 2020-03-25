@@ -1,0 +1,39 @@
+{
+  "name": "mercury",
+  "version": "1.0.0",
+  "description": "Astrological API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js --exec babel-node --presets babel-preset-env",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/smquintero99/d3.git"
+  },
+  "keywords": [
+    "astrology",
+    "express",
+    "sirius",
+    "d3"
+  ],
+  "author": "Santiago M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/smquintero99/d3/issues"
+  },
+  "homepage": "https://gitlab.com/smquintero99/d3#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "swisseph": "^0.5.13"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.19.2"
+  }
+}

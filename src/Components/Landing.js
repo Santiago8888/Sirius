@@ -2,6 +2,8 @@ import { Link, Element } from 'react-scroll'
 import Particles from 'react-particles-js'
 import React, { Fragment, useState } from "react"
 import { DateInput, days, leap_years } from './DateInput'
+import axios from 'axios'
+
 
 const FIRST_COLOR = '#4D235F'
 const SECOND_COLOR = '#EE9CA0'
@@ -91,7 +93,15 @@ const CTAForm = ({ titles, labels, cta }) => {
                 <DateInput date={date} setDate={validate_date}/>
             </div>
         </fieldset>
-        <button className="SubmitButton " type="submit" onClick={() => console.log({...fields, date})}> { cta } </button>
+        <button 
+            className="SubmitButton" 
+            type="submit" 
+            onClick={async() => {
+                console.log('Form', {...fields, date})
+                const { data } = await axios.post('http://localhost:4000', {year: 1988, month: 8, day: 17})
+                console.log('Data', data)
+            }}
+        > { cta } </button>
     </div>
 }
 
