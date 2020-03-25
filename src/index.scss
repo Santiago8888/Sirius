@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+table tr.is-selected { background-color: rgba(102, 51, 153, 0.5)!important }
+.card-header-title{ color: rebeccapurple!important }
+.has-text-danger{ color: darkred!important }
+strong{ color: rebeccapurple!important }
+th{text-align: center !important }
+td{text-align: center !important }
+$title-color: darkgreen;
+
+.card {
+    background-color: transparent !important;
+    box-shadow: none !important
+}
+
+.card-content {
+    background-color: transparent !important;
+    padding: 1rem 6rem !important;
+}
+
+.FormGroup {
+    margin: 0 15px 20px;
+    padding: 0;
+    border-style: none;
+    background-color: #7795f8;
+    will-change: opacity, transform;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+    border-radius: 4px;
+}
+  
+.FormRow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 15px;
+    border-top: 1px solid #819efc;
+}
+  
+.StripeElement--webkit-autofill {
+    background: transparent !important;
+}
+  
+.StripeElement {
+    width: 100%;
+    padding: 11px 15px 11px 0;
+}
+
+.FormRowLabel {
+    width: 50%;
+    min-width: 70px;
+    padding: 11px;
+    color: #c4f0ff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100%
+}
+
+.FormRowInput {
+    font-size: 16px;
+    width: 100%;
+    padding: 11px 15px 11px 0;
+    color: #fff;
+    background-color: transparent;
+    animation: 1ms void-animation-out;
+    border-style: none;
+    outline: none;
+    -webkit-appearance: none;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-weight: 400;
+    font-style: normal
+}
+
+.SubmitButton{
+    border-style: none;
+    outline: none;
+    display: block;
+    font-size: 16px;
+    width: calc(100% - 30px);
+    height: 50px;
+    margin: 40px 15px 0;
+    background-color: mediumblue;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 mediumblue;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    will-change: transform, background-color, box-shadow;
+
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 120%
+}
+
+
+@import "~bulma/bulma.sass"
