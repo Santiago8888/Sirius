@@ -3,6 +3,7 @@ import Particles from 'react-particles-js'
 import React, { Fragment, useState } from "react"
 import { DateInput, days, leap_years } from './DateInput'
 import axios from 'axios'
+import AstralChart from './AstralChart'
 
 
 const FIRST_COLOR = '#4D235F'
@@ -68,7 +69,7 @@ export const InfoSection = ({ title, cards, cta }) => <Element name="sectionTwo"
 </Element>
 
 
-const CTAForm = ({ titles, labels, cta }) => {
+const CTAForm = ({ titles, labels, cta, onAPIResponse }) => {
     const [fields, setFields] = useState(labels.reduce((d, i)=>({...d, [i]:''}),{}))
     const [date, setDate] = useState({ day: '', month: '', year: '' })
     const validate_date = ({ day, month, year }) => {
@@ -99,7 +100,7 @@ const CTAForm = ({ titles, labels, cta }) => {
             onClick={async() => {
                 console.log('Form', {...fields, date})
                 const { data } = await axios.post('http://localhost:4000', {year: 1988, month: 8, day: 17})
-                console.log('Data', data)
+                onAPIResponse(data)
             }}
         > { cta } </button>
     </div>
@@ -108,14 +109,24 @@ const CTAForm = ({ titles, labels, cta }) => {
 
 const ITERACTION_COL_STYLE = {padding:'5% 2%', textAlign:'left', paddingBottom:0}
 const CTA_HERO_STYLE = {backgroundImage:`linear-gradient(${SECOND_COLOR}, ${THIRD_COLOR})`, height:'105vh', flexDirection: 'inherit'}
-const Iteraction = ({ iteraction }) => <div className="column is-two-thirds" style={ITERACTION_COL_STYLE} > { iteraction }</div>
-export const CTASection = ({cta_props, iteraction}) => <Element name="sectionThree">
-    <section {...HERO_PROPS} style={CTA_HERO_STYLE}>
-        <div className="container has-text-centered" style={{padding:'0% 2%', maxWidth:1650}}>
-            <div className="columns is-vcentered" style={{marginTop:'3%'}}>
-                <CTAForm {...cta_props}/>
-                <Iteraction iteraction={iteraction}/>
+const Iteraction = props => <div className="column is-two-thirds" style={ITERACTION_COL_STYLE} > 
+    <AstralChart {...props} />
+</div>
+
+
+export const CTASection = ({cta_props}) => {
+    const[ natalData, setNatalData ] = useState(null)
+    const onAPIResponse = d => setNatalData(d)
+
+
+    return <Element name="sectionThree">
+        <section {...HERO_PROPS} style={CTA_HERO_STYLE}>
+            <div className="container has-text-centered" style={{padding:'0% 2%', maxWidth:1650}}>
+                <div className="columns is-vcentered" style={{marginTop:'3%'}}>
+                    <CTAForm {...cta_props}/>
+                    <Iteraction {...natalData}/>
+                </div>
             </div>
-        </div>
-    </section>
-</Element>
+        </section>
+    </Element>
+}

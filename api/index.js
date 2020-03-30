@@ -42,7 +42,7 @@ app.post('/', ({ body }, res) => {
     const planets_position = planets.map(p => get_position({planet: p, day: jul_day}).longitude)
     const planet_response = planets_position.map((p, i) => {
         const degrees = p % 30
-        const minutes = 0|(0|(d%1)*60e7)/1e7 // https://stackoverflow.com/a/5786281/6823310
+        const minutes = 0|(0|(degrees%1)*60e7)/1e7 // https://stackoverflow.com/a/5786281/6823310
         return {
             name: planet_names[i],
             house: Math.ceil(p/30),

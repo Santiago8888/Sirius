@@ -7,7 +7,7 @@ import './index.scss'
 const App = () => <div className="App">
 	<Hero {...HERO_PROPS}/>
 	<InfoSection {...INFO_PROPS}/>
-	<CTASection cta_props={CTA_PROPS} iteraction={<div/>}/>
+	<CTASection cta_props={CTA_PROPS}/>
 </div>
 
 

@@ -1,7 +1,7 @@
 export const HERO_PROPS = {
 	src: 'sky.jpg',
-	titles: ['Descubre el futuro ', 'que te cuentan las estrellas'],
-	subtitle: 'Comienza a vivir tu vida con un significado más profundo.',
+	titles: ['Descubre tu futuro ', 'en las estrellas'],
+	subtitle: 'Comienza a vivir la vida con un mayor significado.',
 	cta: 'Empieza ahora'
 }
 
@@ -21,7 +21,7 @@ export const INFO_PROPS = {
 
 
 export const CTA_PROPS = {
-	titles: ['Interpreta tu Carta Astral', 'con tu fecha de nacimiento.'],
+	titles: ['Obten tu Carta Astral', 'con tu fecha de nacimiento.'],
 	labels: ['Nombre'],
-	cta: 'Enviar'
+	cta: 'Confirmar'
 }
